@@ -1,0 +1,38 @@
+{% set data = load_setup_py_data() %}
+{% set name = "django-suit" %}
+{% set version = "2.0beta3" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+    path: ..
+    
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+    - django>=3.2
+  run:
+    - python
+    - django>=3.2
+
+test:
+  imports:
+    - suit
+    - suit.templatetags
+
+about:
+  home: "http://djangosuit.com"
+  license: Creative Commons Attribution-NonCommercial 3.0 Unported License
+  license_family: CC
+  license_file: LICENSE
+  summary: "Modern theme for Django admin interface."
+  doc_url:
+  dev_url:
+
