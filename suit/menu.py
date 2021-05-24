@@ -16,7 +16,7 @@ class ChildItem(object):
 
     def _key(self):
         if self._parent_item and self.model and not '.' in self.model:
-            return '.'.join([self._parent_item._key(), self.model])
+            return '.'.join([self._parent_item._key(), self.model]).lower()
         return self.model
 
 
